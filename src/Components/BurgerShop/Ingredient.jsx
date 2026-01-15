@@ -1,7 +1,7 @@
 
 const Ingredient = ({ ingredient, isList, handleAddIngredient }) => {
 	return (
-		<li>
+		<li style={{backgroundColor: `${ingredient.color}`}}>
 			{ingredient.name}
 			{isList 
 				? <button onClick={() => handleAddIngredient(ingredient)}>+</button>
