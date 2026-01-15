@@ -1,10 +1,10 @@
 import Ingredient from "./Ingredient"
 
-const IngredientList = ({ ingredients }) => {
+const IngredientList = ({ ingredients, handleAddIngredient }) => {
 	return (
 		<ul>
 			{ingredients.map(ingredient => 
-				<Ingredient key={ingredient._id} ingredient={ingredient} isList={true} />
+				<Ingredient key={ingredient.name} ingredient={ingredient} isList={true} handleAddIngredient={handleAddIngredient} />
 			)}
 		</ul>
 	)

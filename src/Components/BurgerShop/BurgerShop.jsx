@@ -10,6 +10,10 @@ import '../../styles/burger.css'
 const BurgerShop = () => {
   console.log(ingredients)
   const [stack, setStack] = useState([])
+
+  function handleAddIngredient(item) {
+    setStack([...stack, item])
+  }
   
   return (
     <div className="burger-shop">
@@ -18,7 +22,7 @@ const BurgerShop = () => {
         <button>Clear Order</button>
       </nav>
       <section>
-        <IngredientList ingredients={ingredients} />
+        <IngredientList ingredients={ingredients} handleAddIngredient={handleAddIngredient} />
         <BurgerStack stack={stack} />
       </section>
     </div>
