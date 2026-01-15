@@ -9,13 +9,15 @@ import BurgerShop from './Components/BurgerShop/BurgerShop'
 
 const App = () => {
   return (
-    <main>
+    <>
       <Nav />
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/burgers' element={<BurgerShop />} />
-      </Routes>
-    </main>
+      <main>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/burgers' element={<BurgerShop />} />
+        </Routes>
+      </main>
+    </>
   )
 }
 

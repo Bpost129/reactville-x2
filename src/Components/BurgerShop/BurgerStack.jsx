@@ -1,8 +1,11 @@
+import Ingredient from './Ingredient'
 
-const BurgerStack = (props) => {
+const BurgerStack = ({ stack }) => {
   return (
     <ul className="burger-stack">
-      Use the map function and the Ingredient component here
+      {stack.map(ingredient => 
+        <Ingredient key={ingredient._id} ingredient={ingredient} />
+      )}
     </ul>
   )
 }
