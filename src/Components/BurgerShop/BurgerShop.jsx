@@ -14,12 +14,16 @@ const BurgerShop = () => {
   function handleAddIngredient(item) {
     setStack([...stack, item])
   }
+
+  function handleClearOrder() {
+    setStack([])
+  }
   
   return (
     <div className="burger-shop">
       <nav>
         <h1>Burger Shop</h1>
-        <button>Clear Order</button>
+        <button onClick={handleClearOrder}>Clear Order</button>
       </nav>
       <section>
         <IngredientList ingredients={ingredients} handleAddIngredient={handleAddIngredient} />
