@@ -4,7 +4,7 @@ const IngredientList = ({ ingredients }) => {
 	return (
 		<ul>
 			{ingredients.map(ingredient => 
-				<Ingredient key={ingredient._id} ingredient={ingredient} />
+				<Ingredient key={ingredient._id} ingredient={ingredient} isList={true} />
 			)}
 		</ul>
 	)
