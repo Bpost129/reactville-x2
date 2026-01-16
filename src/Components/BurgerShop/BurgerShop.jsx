@@ -12,7 +12,14 @@ const BurgerShop = () => {
   const [stack, setStack] = useState([])
 
   function handleAddIngredient(item) {
-    setStack([...stack, item])
+    const numBuns = stack.filter(ing => ing.type === 'bun')
+    if (item.type === 'bun') {
+      if (numBuns.length < 2) {
+        setStack([...stack, item])
+      }
+    } else {
+      setStack([...stack, item])
+    }
   }
 
   function handleClearOrder() {
