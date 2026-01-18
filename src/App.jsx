@@ -7,6 +7,7 @@ import './styles/App.css'
 import Nav from './Components/Nav/Nav'
 import Landing from './Components/Landing/Landing'
 import BurgerShop from './Components/BurgerShop/BurgerShop'
+import SuperMarket from './Components/SuperMarket/SuperMarket'
 
 const App = () => {
   const [daytime, setDaytime] = useState(true)
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Landing daytime={daytime} />} />
           <Route path='/burgers' element={<BurgerShop />} />
+          <Route path='/market' element={<SuperMarket />} />
         </Routes>
       </main>
     </>
