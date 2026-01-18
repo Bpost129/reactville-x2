@@ -44,7 +44,6 @@ const SuperMarket = () => {
 
   console.log(cart)
 
-  console.log('Imported product data:::', products)
   return (
     <div className="super-market">
       <section>

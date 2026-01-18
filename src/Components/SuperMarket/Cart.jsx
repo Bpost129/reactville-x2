@@ -1,6 +1,9 @@
 import CartItem from './CartItem'
 
 const Cart = ({ cart, handleRemoveFromCart, setCart }) => {
+  const total = cart.reduce((prev, next) => {
+    return prev + (next.price * next.quantity) 
+  }, 0)
 
   return (
     <div className="cart">
@@ -10,7 +13,7 @@ const Cart = ({ cart, handleRemoveFromCart, setCart }) => {
       )}
       <div className="cart-total">
         <p>Total:</p>
-        <p>$ Display Amount Here</p>
+        <p>$ {total.toFixed(2)}</p>
       </div>
 
       <button>CHECKOUT</button>
