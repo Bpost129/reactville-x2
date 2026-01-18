@@ -16,8 +16,10 @@ const App = () => {
   const handleExchange = (amt) => {
     if (cash - amt >= 0) {
       setCash(cash - amt)
+      return true
     } else {
       console.log('Not enough funds')
+      return false
     }
   }
 
