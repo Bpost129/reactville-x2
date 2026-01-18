@@ -5,7 +5,7 @@ import Logo from '../../assets/react-logo.png'
 import Clock from './Clock'
 import Wallet from './Wallet'
 
-const Nav = ({ setDaytime }) => {
+const Nav = ({ setDaytime, cash }) => {
   return (
     <nav className="navigation-bar">
       <NavLink to="/" id='logo'>
@@ -17,7 +17,7 @@ const Nav = ({ setDaytime }) => {
       <NavLink to="/burgers">
         BURGER SHOP
       </NavLink>
-      <Wallet />
+      <Wallet cash={cash} />
       <Clock setDaytime={setDaytime} />
     </nav>
   )
