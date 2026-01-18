@@ -25,7 +25,7 @@ const SuperMarket = () => {
         <DisplayProducts products={products} productCategory={productCategory} handleAddToCart={handleAddToCart} />
       </section>
 
-      <Cart />
+      <Cart cart={cart} />
 
     </div>
   )
