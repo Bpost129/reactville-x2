@@ -13,6 +13,10 @@ const App = () => {
   const [daytime, setDaytime] = useState(true)
   const [cash, setCash] = useState(100)
 
+  const handleExchange = (amt) => {
+    // setCash(cash - amt)
+  }
+
   return (
     <>
       <Nav setDaytime={setDaytime} cash={cash} />
