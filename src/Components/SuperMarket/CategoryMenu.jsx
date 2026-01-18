@@ -1,5 +1,5 @@
 
-const CategoryMenu = ({ products }) => {
+const CategoryMenu = ({ products, setProductCategory }) => {
 
 
   // const productCats = products.map(prod => prod.category)
@@ -9,11 +9,15 @@ const CategoryMenu = ({ products }) => {
     (prod) => prod.category
   ))]
 
+  const handleSelect = (e) => {
+    setProductCategory(e.target.value)
+  }
+
 
   return (
-    <select>
+    <select onChange={handleSelect}>
       {categories.map(cat =>
-        <option>
+        <option value={cat}>
           {cat}
         </option>
       )}

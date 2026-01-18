@@ -6,7 +6,8 @@ const DisplayProducts = ({ products, productCategory }) => {
   return (
     <div className="product-list">
       {products.map(product =>
-        <Product product={product} />
+        
+        product.productCategory && <Product product={product} />
       )}
     </div>
   )
