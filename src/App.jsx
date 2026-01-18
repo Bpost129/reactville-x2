@@ -18,7 +18,6 @@ const App = () => {
       setCash(cash - amt)
       return true
     } else {
-      console.log('Not enough funds')
       return false
     }
   }
