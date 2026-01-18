@@ -19,7 +19,7 @@ const SuperMarket = () => {
     <div className="super-market">
       <section>
         <MarketNav products={products} />
-        <DisplayProducts products={products} />
+        <DisplayProducts products={products} productCategory={productCategory} />
       </section>
 
       <Cart />

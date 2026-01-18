@@ -1,9 +1,13 @@
+import Product from './Product'
 
-const DisplayProducts = () => {
+
+const DisplayProducts = ({ products, productCategory }) => {
   
   return (
     <div className="product-list">
-      Use the map function and Product component here
+      {products.map(product =>
+        <Product product={product} />
+      )}
     </div>
   )
 }

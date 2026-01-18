@@ -1,12 +1,13 @@
 
 const CategoryMenu = ({ products }) => {
-  const productCats = products.map(prod => prod.category)
-  const categorySet = new Set(productCats)
-  const categories = [...categorySet]
 
-  // const categories = [...new Set(products.map(
-  //   (prod) => prod.category
-  // ))]
+
+  // const productCats = products.map(prod => prod.category)
+  // const categorySet = new Set(productCats)
+  // const categories = [...categorySet]
+  const categories = [...new Set(products.map(
+    (prod) => prod.category
+  ))]
 
 
   return (
