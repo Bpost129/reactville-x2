@@ -8,7 +8,7 @@ import { products } from '../../data/market-data'
 
 import '../../styles/super-market.css'
 
-const SuperMarket = () => {
+const SuperMarket = ({ handleExchange }) => {
   const [cart, setCart] = useState([])
   const [productCategory, setProductCategory] = useState('Produce')
   const [showCart, setShowCart] = useState(true)
@@ -56,7 +56,7 @@ const SuperMarket = () => {
         <DisplayProducts products={products} productCategory={productCategory} handleAddToCart={handleAddToCart} />
       </section>
 
-      {showCart && <Cart cart={cart} setCart={setCart} handleRemoveFromCart={handleRemoveFromCart} />}
+      {showCart && <Cart cart={cart} setCart={setCart} handleRemoveFromCart={handleRemoveFromCart} handleExchange={handleExchange} />}
 
     </div>
   )

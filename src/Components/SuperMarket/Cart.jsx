@@ -1,9 +1,14 @@
 import CartItem from './CartItem'
 
-const Cart = ({ cart, handleRemoveFromCart, setCart }) => {
+const Cart = ({ cart, handleRemoveFromCart, setCart, handleExchange }) => {
   const total = cart.reduce((prev, next) => {
     return prev + (next.price * next.quantity) 
   }, 0)
+
+  const handleTransaction = () => {
+    handleExchange(total)
+    setCart([])
+  }
 
   return (
     <div className="cart">
@@ -16,7 +21,7 @@ const Cart = ({ cart, handleRemoveFromCart, setCart }) => {
         <p>$ {total.toFixed(2)}</p>
       </div>
 
-      <button>CHECKOUT</button>
+      <button onClick={handleTransaction}>CHECKOUT</button>
       <button onClick={() => setCart([])}>CLEAR CART</button>
     </div>
   )

@@ -1,7 +1,7 @@
 
 const Wallet = ({ cash }) => {
   return (
-    <p className="display-items">Cash: ${cash}</p>
+    <p className="display-items">Cash: ${cash.toFixed(2)}</p>
   )
 }
 
