@@ -2,13 +2,16 @@
 const CategoryMenu = ({ products }) => {
   const productCats = products.map(prod => prod.category)
   const categorySet = new Set(productCats)
-  const categoryMenu = [...categorySet]
+  const categories = [...categorySet]
 
-  
+  // const categories = [...new Set(products.map(
+  //   (prod) => prod.category
+  // ))]
+
 
   return (
     <select>
-      {categoryMenu.map(cat =>
+      {categories.map(cat =>
         <option>
           {cat}
         </option>
