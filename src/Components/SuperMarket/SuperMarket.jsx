@@ -13,7 +13,17 @@ const SuperMarket = () => {
   const [productCategory, setProductCategory] = useState('Produce')
 
   const handleAddToCart = (prod) => {
-    setCart([...cart, prod])
+    if (!cart.includes(prod)) {
+      prod.quantity = 1
+      setCart([...cart, prod])
+    } else {
+      cart.map(item => {
+        if (item.name === prod.name) {
+          return item.quantity += 1
+        }
+      })
+      setCart([...cart])
+    }
   }
   console.log(cart)
 

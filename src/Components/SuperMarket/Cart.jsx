@@ -1,6 +1,7 @@
 import CartItem from './CartItem'
 
 const Cart = ({ cart }) => {
+
   return (
     <div className="cart">
       <h3>Cart</h3>

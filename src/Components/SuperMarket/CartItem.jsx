@@ -6,7 +6,7 @@ const CartItem = ({ item }) => {
 			<span>
 				<p id="product-name">{item.name}</p>
 				<p id="product-price">${item.price}</p>
-				<p id="product-quantity">Quantity:</p>
+				<p id="product-quantity">Quantity:{item.quantity}</p>
 			</span>
 			<button>X</button>
 		</div>
