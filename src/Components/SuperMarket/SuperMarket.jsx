@@ -11,6 +11,11 @@ import '../../styles/super-market.css'
 const SuperMarket = () => {
   const [cart, setCart] = useState([])
   const [productCategory, setProductCategory] = useState('Produce')
+  const [showCart, setShowCart] = useState(true)
+
+  const handleShowCart = () => {
+    setShowCart(!showCart)
+  }
 
   const handleAddToCart = (prod) => {
     if (!cart.includes(prod)) {
@@ -47,11 +52,11 @@ const SuperMarket = () => {
   return (
     <div className="super-market">
       <section>
-        <MarketNav products={products} setProductCategory={setProductCategory} />
+        <MarketNav products={products} setProductCategory={setProductCategory} handleShowCart={handleShowCart} />
         <DisplayProducts products={products} productCategory={productCategory} handleAddToCart={handleAddToCart} />
       </section>
 
-      <Cart cart={cart} setCart={setCart} handleRemoveFromCart={handleRemoveFromCart} />
+      {showCart && <Cart cart={cart} setCart={setCart} handleRemoveFromCart={handleRemoveFromCart} />}
 
     </div>
   )

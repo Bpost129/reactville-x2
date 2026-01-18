@@ -14,7 +14,8 @@ const App = () => {
   const [cash, setCash] = useState(100)
 
   const handleExchange = (amt) => {
-    // setCash(cash - amt)
+
+    setCash(cash - amt)
   }
 
   return (
