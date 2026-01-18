@@ -25,6 +25,23 @@ const SuperMarket = () => {
       setCart([...cart])
     }
   }
+
+  const handleRemoveFromCart = (prod) => {
+    if (prod.quantity > 1) {
+      cart.map(item => {
+        if (item.name === prod.name) {
+          return item.quantity -= 1
+        }
+      })
+      setCart([...cart])
+    } else {
+      let newCart = cart.filter(item => {
+        return item.name !== prod.name
+      })
+      setCart([...newCart])
+    }
+  }
+
   console.log(cart)
 
   console.log('Imported product data:::', products)
@@ -35,7 +52,7 @@ const SuperMarket = () => {
         <DisplayProducts products={products} productCategory={productCategory} handleAddToCart={handleAddToCart} />
       </section>
 
-      <Cart cart={cart} />
+      <Cart cart={cart} setCart={setCart} handleRemoveFromCart={handleRemoveFromCart} />
 
     </div>
   )
