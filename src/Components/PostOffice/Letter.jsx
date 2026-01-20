@@ -1,20 +1,20 @@
 
-const Letter = () => {
+const Letter = ({ letterId, letters }) => {
 
   return (
     <>
       <tr>
-        <td id="letter-date"></td>
-        <td id="letter-sender"></td>
-        <td id="letter-recipient"></td>
-        <td id="letter-subject"></td>
+        <td id="letter-date">{letters[letterId].date}</td>
+        <td id="letter-sender">{letters[letterId].sender}</td>
+        <td id="letter-recipient">{letters[letterId].recipient}</td>
+        <td id="letter-subject">{letters[letterId].subject}</td>
         <td id="letter-checkbox">
           <input name="isRead" type="checkbox" />
         </td>
       </tr>
       <tr>
         <td id="letter-content" colSpan="5">
-          Letter Content here
+          {letters[letterId].content}
         </td>
       </tr>
     </>

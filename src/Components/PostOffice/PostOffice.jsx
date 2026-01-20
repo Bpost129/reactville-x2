@@ -16,7 +16,7 @@ const PostOffice = (props) => {
 	const [letters, setLetters] = useState(initialLetters)
 	const [boxes, setBoxes] = useState(initialPOBoxes)
 
-	console.log(initialPOBoxes)
+	console.log(initialPOBoxes, initialLetters)
 
 	return (
 		<div className="post-office">

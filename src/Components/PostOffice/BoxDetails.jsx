@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
+import LetterList from './LetterList'
+
 const BoxDetails = ({ boxes, letters }) => {
   const { boxNo } = useParams()
   const box = boxes[boxNo]
@@ -8,7 +10,7 @@ const BoxDetails = ({ boxes, letters }) => {
   return (
     <section className="box-details">
       <header>
-        <h3>PO Box</h3>
+        <h3>PO Box {boxNo}</h3>
         <select>
           {box.boxHolders.map(holder =>
             <option value={holder}>{holder}</option>
@@ -16,7 +18,7 @@ const BoxDetails = ({ boxes, letters }) => {
         </select>
       </header>
 
-      LetterList component here
+      <LetterList letterIds={box.letters} letters={letters} />
 
     </section>
   )
