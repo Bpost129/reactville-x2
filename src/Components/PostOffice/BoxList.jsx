@@ -1,8 +1,16 @@
 
-const BoxList = () => {
+const BoxList = ({ boxes }) => {
+  const boxList = Object.keys(boxes)
+
+  console.log(boxList)
+
   return (
     <section className="po-box-list">
-      Use the map function and Link component here
+      {boxList.map(box => 
+        <div>
+          <p>{boxes[box].boxHolders}</p>
+        </div>
+      )}
     </section>
   )
 }

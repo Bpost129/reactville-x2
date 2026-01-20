@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
 
 import BoxList from './BoxList'
@@ -12,7 +13,10 @@ import { initialPOBoxes, initialLetters } from "../../data/post-data"
 import '../../styles/mail.css'
 
 const PostOffice = (props) => {
-	console.log(initialPOBoxes, initialLetters)
+	const [letters, setLetters] = useState(initialLetters)
+	const [boxes, setBoxes] = useState(initialPOBoxes)
+
+	console.log(initialPOBoxes)
 
 	return (
 		<div className="post-office">
@@ -33,7 +37,7 @@ const PostOffice = (props) => {
 			<div className="postoffice-layout">
 				<section className="img-container"><img src={LobbyImg} alt="post office illustration" /></section>
 				<Routes>
-					<Route path='/' element={<BoxList />} />
+					<Route path='/' element={<BoxList boxes={boxes} />} />
 					<Route path='/:boxNo' element={<BoxDetails />} />
 					<Route path='/letters/new' element={<NewLetter />} />
 					<Route path='/boxes/new' element={<NewBox />} />
