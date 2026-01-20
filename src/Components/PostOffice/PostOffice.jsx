@@ -38,7 +38,7 @@ const PostOffice = (props) => {
 				<section className="img-container"><img src={LobbyImg} alt="post office illustration" /></section>
 				<Routes>
 					<Route path='/' element={<BoxList boxes={boxes} />} />
-					<Route path='/:boxNo' element={<BoxDetails />} />
+					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} />} />
 					<Route path='/letters/new' element={<NewLetter />} />
 					<Route path='/boxes/new' element={<NewBox />} />
 				</Routes>

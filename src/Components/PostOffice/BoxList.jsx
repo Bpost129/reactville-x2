@@ -1,15 +1,14 @@
-import BoxDetails from "./BoxDetails"
-
+import { Link } from "react-router-dom"
 
 const BoxList = ({ boxes }) => {
   const boxList = Object.keys(boxes)
 
-  console.log(boxList)
-
   return (
     <section className="po-box-list">
       {boxList.map(box => 
-        <BoxDetails key={box} box={boxes[box]} />
+        <Link key={box} to={`/postoffice/${box}`} >
+          PO Box {box}
+        </Link>
       )}
     </section>
   )
