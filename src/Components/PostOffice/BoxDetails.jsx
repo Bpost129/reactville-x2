@@ -1,11 +1,18 @@
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-const BoxDetails = ({ boxes }) => {
+const BoxDetails = ({ boxes, letters }) => {
+  const { boxNo } = useParams()
+  const box = boxes[boxNo]
+
   return (
     <section className="box-details">
       <header>
         <h3>PO Box</h3>
         <select>
-          Use the map function to display names of boxholders here
+          {box.boxHolders.map(holder =>
+            <option value={holder}>{holder}</option>
+          )}
         </select>
       </header>
 
