@@ -1,11 +1,13 @@
 
-const BoxDetails = () => {
+const BoxDetails = ({ box }) => {
   return (
     <section className="box-details">
       <header>
         <h3>PO Box</h3>
         <select>
-          Use the map function to display names of boxholders here
+          {box.boxHolders.map(person => 
+            <option value={person}>{person}</option>
+          )}
         </select>
       </header>
 
