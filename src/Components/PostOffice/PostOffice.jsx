@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom'
 
 import BoxList from './BoxList'
 import BoxDetails from './BoxDetails'
@@ -19,7 +19,15 @@ const PostOffice = (props) => {
 
 			<nav>
 				<h1>Post Office</h1>
-				Navlinks here
+				<NavLink to="/postoffice">
+					Lobby
+				</NavLink>
+				<NavLink to="/postoffice/letters/new">
+					New Letter
+				</NavLink>
+				<NavLink to="/postoffice/boxes/new">
+					New PO Box
+				</NavLink>
 			</nav>
 
 			<div className="postoffice-layout">
