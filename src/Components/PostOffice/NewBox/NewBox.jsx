@@ -20,7 +20,14 @@ const NewBox = ({ createBox }) => {
       setBoxholders([...boxholders, name])
       setFormData({ firstName: '', lastName: '' })
     }
+  }
 
+  const removeBoxholder = (person) => {
+    let removed = boxholders.filter(holder => {
+      return holder !== person
+    })
+    
+    setBoxholders({ ...removed })
   }
 
   const handleSubmit = (e) => {
@@ -40,7 +47,7 @@ const NewBox = ({ createBox }) => {
       </header>
 
       <section>
-        <BoxHolders boxholders={boxholders} />
+        <BoxHolders boxholders={boxholders} removeBoxholder={removeBoxholder} />
         <input placeholder="First Name" type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
         <input placeholder="Last Name" type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
         <button id="add-boxholder" type="submit" disabled={!formData.firstName || !formData.lastName} onClick={addBoxholder}>ADD BOXHOLDER</button>
