@@ -32,14 +32,14 @@ const NewBox = () => {
       <header>
         <h3>New PO Box</h3>
         <p>Total: $</p>
-        <button id="submit-box-btn">SUBMIT</button>
+        <button id="submit-box-btn" disabled={!boxholders}>SUBMIT</button>
       </header>
 
       <section>
         <BoxHolders boxholders={boxholders} />
         <input placeholder="First Name" type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
         <input placeholder="Last Name" type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-        <button id="add-boxholder" type="submit" onClick={addBoxholder}>ADD BOXHOLDER</button>
+        <button id="add-boxholder" type="submit" disabled={!formData.firstName || !formData.lastName} onClick={addBoxholder}>ADD BOXHOLDER</button>
       </section>
 
     </section>
