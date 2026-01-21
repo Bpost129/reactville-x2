@@ -16,6 +16,10 @@ const PostOffice = (props) => {
 	const [letters, setLetters] = useState(initialLetters)
 	const [boxes, setBoxes] = useState(initialPOBoxes)
 
+	const markAsRead = (id, status) => {
+		setLetters({ ...letters, [id]: { ...letters[id], read: status } })
+	}
+
 	console.log(initialPOBoxes, initialLetters)
 
 	return (
@@ -38,7 +42,7 @@ const PostOffice = (props) => {
 				<section className="img-container"><img src={LobbyImg} alt="post office illustration" /></section>
 				<Routes>
 					<Route path='/' element={<BoxList boxes={boxes} />} />
-					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} letters={letters} />} />
+					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} letters={letters} markAsRead={markAsRead} />} />
 					<Route path='/letters/new' element={<NewLetter />} />
 					<Route path='/boxes/new' element={<NewBox />} />
 				</Routes>

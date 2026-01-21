@@ -1,5 +1,5 @@
 
-const Letter = ({ letterId, letters }) => {
+const Letter = ({ letterId, letters, markAsRead }) => {
 
   return (
     <>
@@ -9,7 +9,7 @@ const Letter = ({ letterId, letters }) => {
         <td id="letter-recipient">{letters[letterId].recipient}</td>
         <td id="letter-subject">{letters[letterId].subject}</td>
         <td id="letter-checkbox">
-          <input name="isRead" type="checkbox" />
+          <input name="isRead" type="checkbox" checked={letters[letterId].read ? true : ''} onChange={() => markAsRead(letterId, !letters[letterId].read)}/>
         </td>
       </tr>
       <tr>

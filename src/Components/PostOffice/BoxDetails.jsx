@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 
 import LetterList from './LetterList'
 
-const BoxDetails = ({ boxes, letters }) => {
+const BoxDetails = ({ boxes, letters, markAsRead }) => {
   const { boxNo } = useParams()
   const box = boxes[boxNo]
 
@@ -13,12 +13,12 @@ const BoxDetails = ({ boxes, letters }) => {
         <h3>PO Box {boxNo}</h3>
         <select>
           {box.boxHolders.map(holder =>
-            <option value={holder}>{holder}</option>
+            <option key={holder} value={holder}>{holder}</option>
           )}
         </select>
       </header>
 
-      <LetterList letterIds={box.letters} letters={letters} />
+      <LetterList letterIds={box.letters} letters={letters} markAsRead={markAsRead} />
 
     </section>
   )
