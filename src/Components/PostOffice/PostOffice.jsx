@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
 
 import BoxList from './BoxList'
 import BoxDetails from './BoxDetails'
@@ -15,12 +15,22 @@ import '../../styles/mail.css'
 const PostOffice = (props) => {
 	const [letters, setLetters] = useState(initialLetters)
 	const [boxes, setBoxes] = useState(initialPOBoxes)
+	const nextBoxNumber = Object.keys(boxes).length
+	const nextLetterId = Object.keys(letters).length
+	const navigate = useNavigate()
 
 	const markAsRead = (id, status) => {
 		setLetters({ ...letters, [id]: { ...letters[id], read: status } })
 	}
 
-	console.log(initialPOBoxes, initialLetters)
+	const createBox = (holders) => {
+		setBoxes({ ...boxes , [nextBoxNumber]: { boxholders: holders, letters: [] } })
+		// navigate('/postoffice')
+		console.log(boxes)
+	}
+
+	console.log(boxes)
+	// console.log(initialPOBoxes, initialLetters)
 
 	return (
 		<div className="post-office">
@@ -44,7 +54,7 @@ const PostOffice = (props) => {
 					<Route path='/' element={<BoxList boxes={boxes} />} />
 					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} letters={letters} markAsRead={markAsRead} />} />
 					<Route path='/letters/new' element={<NewLetter />} />
-					<Route path='/boxes/new' element={<NewBox />} />
+					<Route path='/boxes/new' element={<NewBox createBox={createBox} />} />
 				</Routes>
 			</div>
 

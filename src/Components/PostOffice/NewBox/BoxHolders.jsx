@@ -4,7 +4,7 @@ const BoxHolders = ({ boxholders}) => {
     <div className="box-holders">
       <h4>Boxholders:</h4>
       {boxholders.map(person =>
-        <div>
+        <div key={person}>
           <p>{person}</p>
           <button>Remove</button>
         </div>

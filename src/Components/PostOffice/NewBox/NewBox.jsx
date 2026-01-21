@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 import BoxHolders from "./BoxHolders"
 
-const NewBox = () => {
+const NewBox = ({ createBox }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -18,13 +18,17 @@ const NewBox = () => {
     const name = formData.firstName + " " + formData.lastName
     if (!boxholders.includes(name)) {
       setBoxholders([...boxholders, name])
+      setFormData({ firstName: '', lastName: '' })
     }
+
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    createBox(boxholders)
   }
+
+  console.log()
 
   return (
     <section className="post-office-form">
@@ -32,7 +36,7 @@ const NewBox = () => {
       <header>
         <h3>New PO Box</h3>
         <p>Total: $</p>
-        <button id="submit-box-btn" disabled={!boxholders}>SUBMIT</button>
+        <button id="submit-box-btn" disabled={!boxholders} onClick={handleSubmit}>SUBMIT</button>
       </header>
 
       <section>
