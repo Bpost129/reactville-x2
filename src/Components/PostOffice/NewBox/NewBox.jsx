@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 import BoxHolders from "./BoxHolders"
 
@@ -8,6 +9,7 @@ const NewBox = ({ createBox }) => {
     lastName: '',
   })
   const [boxholders, setBoxholders] = useState([])
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -27,7 +29,7 @@ const NewBox = ({ createBox }) => {
       return holder !== person
     })
     
-    setBoxholders({ ...removed })
+    setBoxholders([...removed])
   }
 
   const handleSubmit = (e) => {

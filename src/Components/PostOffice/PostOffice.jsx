@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom'
 
 import BoxList from './BoxList'
 import BoxDetails from './BoxDetails'
@@ -17,7 +17,6 @@ const PostOffice = (props) => {
 	const [boxes, setBoxes] = useState(initialPOBoxes)
 	const nextBoxNumber = Object.keys(boxes).length
 	const nextLetterId = Object.keys(letters).length
-	const navigate = useNavigate()
 
 	const markAsRead = (id, status) => {
 		setLetters({ ...letters, [id]: { ...letters[id], read: status } })
@@ -25,7 +24,6 @@ const PostOffice = (props) => {
 
 	const createBox = (holders) => {
 		setBoxes({ ...boxes , [nextBoxNumber]: { boxholders: holders, letters: [] } })
-		// navigate('/postoffice')
 		console.log(boxes)
 	}
 
