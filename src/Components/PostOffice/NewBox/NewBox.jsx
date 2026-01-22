@@ -25,6 +25,7 @@ const NewBox = ({ createBox }) => {
   }
 
   const removeBoxholder = (person) => {
+    console.log(person)
     let removed = boxholders.filter(holder => {
       return holder !== person
     })

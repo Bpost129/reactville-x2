@@ -23,7 +23,7 @@ const PostOffice = (props) => {
 	}
 
 	const createBox = (holders) => {
-		setBoxes({ ...boxes , [nextBoxNumber]: { boxholders: holders, letters: [] } })
+		setBoxes({ ...boxes , [nextBoxNumber]: { boxHolders: holders, letters: [] } })
 		console.log(boxes)
 	}
 
