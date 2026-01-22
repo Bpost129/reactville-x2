@@ -2,7 +2,7 @@
 const BoxHolders = ({ boxholders, removeBoxholder }) => {
   return (
     <div className="box-holders">
-      <h4>Boxholders:</h4>
+      {boxholders.length ? <h4>Box Holders:</h4> : <h4>Add a Boxholder</h4>}
       {boxholders.map(person =>
         <div key={person}>
           <p>{person}</p>

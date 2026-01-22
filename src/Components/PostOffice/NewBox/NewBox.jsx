@@ -28,13 +28,17 @@ const NewBox = ({ createBox }) => {
     let removed = boxholders.filter(holder => {
       return holder !== person
     })
-    
     setBoxholders([...removed])
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     createBox(boxholders)
+    handleRedirect()
+  }
+
+  const handleRedirect = () => {
+    navigate('/postoffice', { replace: true })
   }
 
   console.log()
