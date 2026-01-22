@@ -1,5 +1,10 @@
 //Components & Data
+import SelectBox from './SelectBox'
+import SelectRecipient from './SelectRecipient'
+
 import { initialState } from "./initialState"
+
+
 
 const NewLetter = () => {
   console.log(initialState)
@@ -8,8 +13,8 @@ const NewLetter = () => {
 
       <header>
         <h3>New Letter</h3>
-        SelectBox component here
-        SelectRecipient component here
+        <SelectBox />
+        <SelectRecipient />
       </header>
 
       <section>
