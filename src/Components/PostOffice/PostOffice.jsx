@@ -51,7 +51,7 @@ const PostOffice = (props) => {
 				<Routes>
 					<Route path='/' element={<BoxList boxes={boxes} />} />
 					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} letters={letters} markAsRead={markAsRead} />} />
-					<Route path='/letters/new' element={<NewLetter />} />
+					<Route path='/letters/new' element={<NewLetter boxes={boxes} />} />
 					<Route path='/boxes/new' element={<NewBox createBox={createBox} />} />
 				</Routes>
 			</div>

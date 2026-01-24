@@ -8,14 +8,17 @@ import { initialState } from "./initialState"
 
 
 
-const NewLetter = () => {
+const NewLetter = ({ boxes }) => {
   const [boxNum, setBoxNum] = useState(null)
   const [letter, setLetter] = useState(initialState)
+  const boxNumbers = Object.keys(boxes)
 
   console.log(initialState)
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // sendLetter(letter)
+    setLetter(initialState)
   }
 
   const handleChange = (e) => {
@@ -27,7 +30,7 @@ const NewLetter = () => {
 
       <header>
         <h3>New Letter</h3>
-        <SelectBox />
+        <SelectBox setBoxNum={setBoxNum} boxNumbers={boxNumbers} />
         <SelectRecipient />
       </header>
 
