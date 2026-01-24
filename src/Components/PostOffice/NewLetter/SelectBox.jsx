@@ -1,9 +1,11 @@
 
-const SelectBox = () => {
+const SelectBox = ({ setBoxNum, boxNumbers }) => {
   return (
     <select required name="boxNo">
       <option value="">Select PO Box</option>
-      Mapping function might be required after the first option tag above
+      {boxNumbers.map(num =>
+        <option value={num}>PO Box {num}</option>
+      )}
     </select>
   )
 }
