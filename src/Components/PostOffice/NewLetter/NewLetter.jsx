@@ -8,7 +8,7 @@ import { initialState } from "./initialState"
 
 
 
-const NewLetter = ({ boxes }) => {
+const NewLetter = ({ boxes, sendLetter }) => {
   const [boxNum, setBoxNum] = useState(null)
   const [letter, setLetter] = useState(initialState)
   const boxNumbers = Object.keys(boxes)
@@ -18,7 +18,7 @@ const NewLetter = ({ boxes }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // sendLetter(letter)
+    sendLetter(boxNum, letter)
     setLetter(initialState)
   }
 

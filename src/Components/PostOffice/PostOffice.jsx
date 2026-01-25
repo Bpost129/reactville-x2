@@ -27,6 +27,12 @@ const PostOffice = (props) => {
 		console.log(boxes)
 	}
 
+	const sendLetter = (boxNum, formData) => {
+		setLetters({ ...letters, [nextLetterId]: formData})
+		const updatedLetterIds = [...boxes[boxNum].letters, nextLetterId]
+		setBoxes({ ...boxes, [boxNum]: { ...boxes[boxNum], letters: updatedLetterIds} })
+	}
+
 	console.log(boxes)
 	// console.log(initialPOBoxes, initialLetters)
 
@@ -51,7 +57,7 @@ const PostOffice = (props) => {
 				<Routes>
 					<Route path='/' element={<BoxList boxes={boxes} />} />
 					<Route path='/:boxNo' element={<BoxDetails boxes={boxes} letters={letters} markAsRead={markAsRead} />} />
-					<Route path='/letters/new' element={<NewLetter boxes={boxes} />} />
+					<Route path='/letters/new' element={<NewLetter boxes={boxes} sendLetter={sendLetter} />} />
 					<Route path='/boxes/new' element={<NewBox createBox={createBox} />} />
 				</Routes>
 			</div>
