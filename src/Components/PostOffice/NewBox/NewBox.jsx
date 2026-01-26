@@ -10,6 +10,7 @@ const NewBox = ({ createBox }) => {
   })
   const [boxholders, setBoxholders] = useState([])
   const navigate = useNavigate()
+  const costOfBox = boxholders.length * 10
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
@@ -34,7 +35,7 @@ const NewBox = ({ createBox }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    createBox(boxholders)
+    createBox(boxholders, costOfBox)
     handleRedirect()
   }
 
@@ -49,7 +50,7 @@ const NewBox = ({ createBox }) => {
 
       <header>
         <h3>New PO Box</h3>
-        <p>Total: $</p>
+        <p>Total: ${costOfBox}</p>
         <button id="submit-box-btn" disabled={!boxholders} onClick={handleSubmit}>SUBMIT</button>
       </header>
 

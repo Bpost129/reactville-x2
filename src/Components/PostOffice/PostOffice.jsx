@@ -22,17 +22,17 @@ const PostOffice = ({ handleExchange }) => {
 		setLetters({ ...letters, [id]: { ...letters[id], read: status } })
 	}
 
-	const createBox = (holders) => {
+	const createBox = (holders, cost) => {
 		setBoxes({ ...boxes , [nextBoxNumber]: { boxHolders: holders, letters: [] } })
-		handleExchange()
+		handleExchange(cost)
 		console.log(boxes)
 	}
 
 	const sendLetter = (boxNum, formData) => {
 		setLetters({ ...letters, [nextLetterId]: formData})
-		handleExchange()
 		const updatedLetterIds = [...boxes[boxNum].letters, nextLetterId]
 		setBoxes({ ...boxes, [boxNum]: { ...boxes[boxNum], letters: updatedLetterIds} })
+		handleExchange(0.99)
 	}
 
 	console.log(boxes)
