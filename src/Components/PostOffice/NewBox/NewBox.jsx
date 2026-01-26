@@ -37,7 +37,9 @@ const NewBox = ({ createBox }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     createBox(boxholders, costOfBox)
-    setStatus('Your PO Box has been created.')
+    if (createBox(boxholders, costOfBox)) setStatus('Your PO Box has been created.')
+    else setStatus('You do not have enough funds.')
+    
     handleRedirect()
   }
 

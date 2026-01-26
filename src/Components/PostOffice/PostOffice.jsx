@@ -25,7 +25,8 @@ const PostOffice = ({ handleExchange }) => {
 	const createBox = (holders, cost) => {
 		setBoxes({ ...boxes , [nextBoxNumber]: { boxHolders: holders, letters: [] } })
 		handleExchange(cost)
-		console.log(boxes)
+		if (handleExchange(cost)) return true
+		else return false
 	}
 
 	const sendLetter = (boxNum, formData) => {
@@ -33,6 +34,8 @@ const PostOffice = ({ handleExchange }) => {
 		const updatedLetterIds = [...boxes[boxNum].letters, nextLetterId]
 		setBoxes({ ...boxes, [boxNum]: { ...boxes[boxNum], letters: updatedLetterIds} })
 		handleExchange(0.99)
+		if (handleExchange(0.99)) return true
+		else return false
 	}
 
 	console.log(boxes)

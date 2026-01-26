@@ -23,7 +23,9 @@ const NewLetter = ({ boxes, sendLetter }) => {
     e.preventDefault()
     sendLetter(boxNum, letter)
     setLetter(initialState)
-    setStatus('Your letter has been sent.')
+    if (sendLetter(boxNum, letter)) setStatus('Your letter has been sent.')
+    else setStatus('You do not have enough funds.')
+    
   }
 
   const handleChange = (e) => {
