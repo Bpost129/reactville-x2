@@ -9,6 +9,7 @@ const NewBox = ({ createBox }) => {
     lastName: '',
   })
   const [boxholders, setBoxholders] = useState([])
+  const [status, setStatus] = useState('')
   const navigate = useNavigate()
   const costOfBox = boxholders.length * 10
 
@@ -36,14 +37,19 @@ const NewBox = ({ createBox }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     createBox(boxholders, costOfBox)
+    setStatus('Your PO Box has been created.')
     handleRedirect()
   }
 
   const handleRedirect = () => {
-    navigate('/postoffice', { replace: true })
+    setTimeout(() => navigate('/postoffice', { replace: true }), 2000)
   }
 
-  console.log()
+  if (status) return (
+    <div className="status-msg">
+      <h4>{status}</h4>
+    </div>
+  )
 
   return (
     <section className="post-office-form">
