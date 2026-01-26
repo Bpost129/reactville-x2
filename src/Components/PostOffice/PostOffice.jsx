@@ -12,7 +12,7 @@ import { initialPOBoxes, initialLetters } from "../../data/post-data"
 
 import '../../styles/mail.css'
 
-const PostOffice = (props) => {
+const PostOffice = ({ handleExchange }) => {
 	const [letters, setLetters] = useState(initialLetters)
 	const [boxes, setBoxes] = useState(initialPOBoxes)
 	const nextBoxNumber = Object.keys(boxes).length
@@ -24,11 +24,13 @@ const PostOffice = (props) => {
 
 	const createBox = (holders) => {
 		setBoxes({ ...boxes , [nextBoxNumber]: { boxHolders: holders, letters: [] } })
+		handleExchange()
 		console.log(boxes)
 	}
 
 	const sendLetter = (boxNum, formData) => {
 		setLetters({ ...letters, [nextLetterId]: formData})
+		handleExchange()
 		const updatedLetterIds = [...boxes[boxNum].letters, nextLetterId]
 		setBoxes({ ...boxes, [boxNum]: { ...boxes[boxNum], letters: updatedLetterIds} })
 	}

@@ -31,7 +31,7 @@ const App = () => {
           <Route path='/' element={<Landing daytime={daytime} />} />
           <Route path='/burgers' element={<BurgerShop />} />
           <Route path='/market' element={<SuperMarket handleExchange={handleExchange} />} />
-          <Route path='/postoffice/*' element={<PostOffice />} />
+          <Route path='/postoffice/*' element={<PostOffice handleExchange={handleExchange} />} />
         </Routes>
       </main>
     </>
