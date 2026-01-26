@@ -1,3 +1,4 @@
+import ControlPanel from "./ControlPanel"
 
 const Account = ({ name }) => {
 	return (
@@ -7,7 +8,7 @@ const Account = ({ name }) => {
 				<p>Balance:</p>
 				<p>Message:</p>
 			</section>
-			Control Panel component here
+			<ControlPanel />
 		</div>
 	)
 }
