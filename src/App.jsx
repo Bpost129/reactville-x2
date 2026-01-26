@@ -9,6 +9,7 @@ import Landing from './Components/Landing/Landing'
 import BurgerShop from './Components/BurgerShop/BurgerShop'
 import SuperMarket from './Components/SuperMarket/SuperMarket'
 import PostOffice from './Components/PostOffice/PostOffice'
+import Bank from './Components/Bank/Bank'
 
 const App = () => {
   const [daytime, setDaytime] = useState(true)
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/burgers' element={<BurgerShop />} />
           <Route path='/market' element={<SuperMarket handleExchange={handleExchange} />} />
           <Route path='/postoffice/*' element={<PostOffice handleExchange={handleExchange} />} />
+          <Route path='/bank' element={<Bank handleExchange={handleExchange} />} />
         </Routes>
       </main>
     </>

@@ -11,6 +11,9 @@ const Nav = ({ setDaytime, cash }) => {
       <NavLink to="/" id='logo'>
         <img src={Logo} alt="react logo" />
       </NavLink>
+      <NavLink to="/bank">
+        BANK
+      </NavLink>
       <NavLink to="/postoffice">
         POST OFFICE
       </NavLink>
