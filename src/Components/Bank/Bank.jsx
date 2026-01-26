@@ -1,14 +1,17 @@
+
+import Account from './Account'
+
 import '../../styles/bank.css'
 
-const Bank = () => {
+const Bank = ({ cash, handleExchange }) => {
 	return (
 		<div className="bank">
 			<nav>
 				<h1>Bank</h1>
 			</nav>
 			<section>
-				Account component here (Checking)
-				Account component here (Savings)
+				<Account name={'Checkings'} />
+				<Account name={'Savings'} />
 			</section>
 		</div>
 	)

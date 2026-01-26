@@ -33,7 +33,7 @@ const App = () => {
           <Route path='/burgers' element={<BurgerShop />} />
           <Route path='/market' element={<SuperMarket handleExchange={handleExchange} />} />
           <Route path='/postoffice/*' element={<PostOffice handleExchange={handleExchange} />} />
-          <Route path='/bank' element={<Bank handleExchange={handleExchange} />} />
+          <Route path='/bank' element={<Bank cash={cash} handleExchange={handleExchange} />} />
         </Routes>
       </main>
     </>
