@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 //Components & Data
 import SelectBox from './SelectBox'
@@ -11,8 +12,10 @@ import { initialState } from "./initialState"
 const NewLetter = ({ boxes, sendLetter }) => {
   const [boxNum, setBoxNum] = useState(null)
   const [letter, setLetter] = useState(initialState)
+  const [status, setStatus] = useState('')
   const boxNumbers = Object.keys(boxes)
   const selectedBox = boxes[boxNum]
+  const navigate = useNavigate()
 
   console.log(initialState)
 
@@ -20,11 +23,21 @@ const NewLetter = ({ boxes, sendLetter }) => {
     e.preventDefault()
     sendLetter(boxNum, letter)
     setLetter(initialState)
+    setStatus('Your letter has been sent.')
   }
 
   const handleChange = (e) => {
     setLetter({ ...letter, [e.target.name]: e.target.value})
   }
+
+  if (status) return (
+    <div className="status-msg">
+      <h4>{status}</h4>
+      <button onClick={() => setStatus('')}>New Letter</button>
+      <button onClick={() => navigate('/postoffice')}>Return To Lobby</button>
+    </div>
+  )
+
   
   return (
     <form className="post-office-form">
